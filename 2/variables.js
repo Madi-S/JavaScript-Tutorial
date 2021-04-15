@@ -30,7 +30,7 @@ const hasInternet = false;
 
 console.log(isValid, hasInternet)
 
-
+isValid.toString()
 // Conclusion: 
 // 1) Use let or const (var is outdated)
 // 2) ; is optional

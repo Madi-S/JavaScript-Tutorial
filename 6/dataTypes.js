@@ -9,4 +9,3 @@ console.log(typeof isWinter)    // boolean
 console.log(typeof days)        // number
 console.log(typeof x)           // undefined
 console.log(typeof null)        // object ? (should be `null`)
-

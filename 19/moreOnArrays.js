@@ -1,5 +1,5 @@
 const companies = ['Tesla', 'BMW', 'Xiaomi', 'Tefal'];
-const fib = [0, 1, 1, 2, 3, 5, 8, '13', true];
+const fib = [0, 1, 1, 2, 3, 5, 8];
 const cars = [
     {'name': 'Toyota Camry 40', 'priceUSD': 2000, 'color': 'pink'},
     {'name': 'Toyota Camry 50', 'priceUSD': 5000, 'color': 'grey'},
@@ -30,8 +30,8 @@ lastComany = companies.pop();
 console.log(`Deleted ${firstCompany} and ${lastComany} from ${companies}`);
 
 // Reverse and return array
-console.log(companies.reverse());
-console.log(companies);
+// console.log(companies.reverse());
+// console.log(companies);
 
 // Get element's index by value
 const tefalIndex = companies.indexOf('Tefal');
@@ -82,13 +82,41 @@ const fibSqrt = fib.map(Math.sqrt);
 console.log(fibPow2, fibSqrt);
 
 
-// Filter function
+// Filter function (name exmplains itself)
 const longCompanies = companies.filter(company => company.length > 3);
 console.log(longCompanies); // [ 'Tefal', 'Xiaomi', 'Tesla' ]
 
 
+// Reduce function (operation with 2 consecutive elements) start from left or right
+const allPrices = cars.reduce((acc, car) => {
+    acc.priceUSD += car.priceUSD;
+    return acc;
+}).priceUSD;
+const sum = fib.reduce((acc, num) => {
+    acc += num;
+    return acc;
+});
+console.log(allPrices);    // 14000
+console.log(sum);          // 20
+
+
+// Merge arrays
+let mergedArray = companies.concat(cars);
+console.log(mergedArray);
+// OR
+mergedArray = [...cars, ...companies];
+console.log(mergedArray);
+
+
+// Fill array with some value
+console.log(companies.fill('Not Given', 3, companies.length));
+
+
+// Slicing [:4] [2:5] [5:-1] etc
+firstFour = companies.slice(0, 4);
+console.log(firstFour);
 
 // Task #1: Reverse a string
-// const givenString = 'Hallo Herr Burgermeister';
-// const reversedString = givenString.split('').reverse().join('');
+const givenString = 'Hallo Herr Burgermeister';
+const reversedString = givenString.split('').reverse().join('');
 // console.log(givenString, '-', reversedString);

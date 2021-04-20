@@ -55,4 +55,51 @@ keys.forEach(key => {
     console.log(key, student[key]);
 })
 
-// Context
+// Context 
+
+const person = {
+    id: 666, 
+    showThis() {console.info('this:', this);},
+    info() {console.info('Person id:', this.id);}
+}
+
+person.info();
+person.showThis();
+
+const logger = {
+    keys() {
+        console.log('Object keys:', Object.keys(this));
+    },
+
+    items() {
+        Object.keys(this).forEach( key => {
+            console.log('Key:', key, '| Value:', this[key]);
+        })
+    },
+
+    withParams(top = false, between= false, bottom = false) {
+        if (top) {
+            console.log('----- Start -----');
+        }
+        Object.keys(this).forEach((key, index, array) =>{
+                console.log('Key:', key, '| Value:', this[key]);
+                if (between && index !== array.length - 1) {
+                    console.log('-----------------');
+                }
+            });
+        if (bottom) {
+            console.log('------ End ------');
+        }
+    },
+}
+
+// Bind does create self function but does not execute it
+const boundFunc = logger.keys.bind(student);
+boundFunc();
+
+// Call function by passing `someObject` to `this` parameter (like self in python)
+const someObject = {a: 3, b: 4, c: 5};
+logger.withParams.call(someObject, true, true, true);
+
+// Pretty much the same method but takes only two parameters (object + array of arguments)
+logger.withParams.apply(someObject, [true, true, true]);

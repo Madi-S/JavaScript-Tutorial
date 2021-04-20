@@ -77,7 +77,7 @@ const logger = {
         })
     },
 
-    withParams(top = false, between= false, bottom = false) {
+    withParams(top = false, between = false, bottom = false) {
         if (top) {
             console.log('----- Start -----');
         }

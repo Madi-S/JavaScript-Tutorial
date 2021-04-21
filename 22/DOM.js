@@ -23,12 +23,12 @@ setTimeout(() =>{
     addStylesTo(heading);
 }, 2000);
 
-function addStylesTo(node) {
-    node.style.color = 'blue';
+function addStylesTo(node, text='Changed via JS', color='blue') {
+    node.textContent = text;
+    node.style.color = color;
     node.style.padding = '4rem';
     node.style.fontSize = '60px';
     node.style.textAlign = 'center';
-    node.textContent = 'Changed via JS';
     node.style.backgroundColor = 'yellow';
 };
 
@@ -43,11 +43,16 @@ console.log(heading2);
 
 // Return all matching elements
 const headings = document.querySelectorAll('.heading');
+for (const h of headings) {
+    setTimeout(() => {addStylesTo(h);}, 2500);
+}
 console.log(headings);
 
 // Nested searching
 const div = document.querySelector('div');
 const p = div.querySelector('p');
 console.log(div.nextElementSibling);
-console.log(div.nextSibling);
+console.log(div.childNodes);
 console.log(p);
+
+// falsy: '', undefined, null, 0, false

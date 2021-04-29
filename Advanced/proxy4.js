@@ -51,3 +51,45 @@ console.log('_password' in bankAccount)
 // Give only `number` and `holder`
 for (let key in bankAccount) console.log(key)
 console.log(Object.keys(bankAccount))
+
+
+// Example #3: Optimization. Aim: optimize code
+const userData = [
+    {id: 1, name: 'Jack', age: 50},
+    {id: 2, name: 'Ryan', age: 35},
+    {id: 3, name: 'Connor', age: 17},
+    {id: 4, name: 'Henry', age: 29},
+]
+console.log(userData)
+
+// This operation can be very slow when dealing with large arrays. Let's optimize it with Proxy
+connor = userData.find(user => user.id == 3)
+
+const index = {}
+userData.forEach(user => index[user.id] = user)
+console.log(index)
+
+const IndexedArray = new Proxy(Array, {
+    construct(target, [args], newTarget) {
+        const index = {}
+        args.forEach(arg => index[arg.id] = arg)
+        return new Proxy(new target(... args), {
+            get(arr, prop ) {
+                switch(prop) {
+                    case 'push':
+                        return item => {
+                            index[item.id] = item
+                            arr[prop].call(arr, item)
+                        }
+                    case 'findById':
+                        return id => index[id]
+                    default:
+                        return arr[prop]
+                }
+            }
+        })
+    }
+})
+
+const users = new IndexedArray(userData)
+console.log(users)

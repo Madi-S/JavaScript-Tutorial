@@ -69,7 +69,7 @@ exists = companies.includes('Google');
 console.log(exists);
 
 
-// Map funciton (does operation over each element)
+// Map function (does operation over each element)
 const upperCaseCompanies = companies.map(company => {return company.toUpperCase();});
 console.log(upperCaseCompanies); // [ 'LG', 'H&M', 'TEFAL', 'XIAOMI', 'BMW', 'TESLA' ]
 

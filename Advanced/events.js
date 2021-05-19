@@ -59,3 +59,6 @@ heading.addEventListener('wheel', event => {
     // document.querySelector('h1').style.color = event.deltaY > 0 ? 'blue' : 'yellow'
     heading.style.fontSize = event.deltaY > 0 ? '30px' : '50px'
 })
+
+heading.addEventListener('drag', event => console.log('Dragging!'))
+heading.addEventListener('drop', event => console.log('Dropped!'))

@@ -13,4 +13,3 @@ const carWithOwner = Object.create(car, {
 
 console.log(carWithOwner.__proto__ === car) // true
 carWithOwner.init()
-

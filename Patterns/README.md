@@ -25,3 +25,20 @@
 ### 8) Flyweight: it is similar to singleton pattern. However, multiple instances of a particular class can exist. Nevertheless, flyweight pattern helps to avoid creating instances with similar arguments by returning existing ones. For instance, caching.
 
 ### 9) Proxy: it helps to define object's behaviour when it is called or rewrite get/set methods.
+
+
+## Behavioural patterns
+
+### 10) Chain of responsibility: it provides methods chaining. In each class method return instance `this`, so that operations can be chained. For instance, like in promise .then .then .then .then ...
+
+### 11) Iterator: it ensures that given object will be enumerable / loopable. For instance, via `generator` or `[Symbol.iterator]`.
+
+### 13) Mediator: it provides intermediary class. This mediator class manages other classes' behaviour.
+
+### 14) Observer: it is quite similar to mediator. This pattern also provides mediator class, which manages other classes' functionality in particular cases.
+
+### 15) State: it allows to change object's behaviour based on some objects' states. For instance, if one object's state is changed, other object will incur some changes.
+
+### 16) Strategy: it encapsulates alternative algorithms (or strategies) for a particular task. This pattern allows a method to be swapped out at runtime by any other method (strategy) without the client realizing it. Essentially, Strategy is a group of algorithms that are interchangeable.
+
+### 17) Template: it defines other classes' functionality. Imagine having one parent class with pre-defined but empty methods, which will be filled with functionality by child classes. In other words, parent class pre-defines methods for child classes. 
